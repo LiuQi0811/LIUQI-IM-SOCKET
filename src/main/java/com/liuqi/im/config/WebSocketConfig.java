@@ -25,7 +25,7 @@ public class WebSocketConfig implements WebSocketConfigurer {
 
     @Override
     public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
-        registry.addHandler(messageHandler,"/websocket/{name}")
+        registry.addHandler(messageHandler,"/websocket/{username}")
                 .setAllowedOrigins("*")
                 .addInterceptors(messageHandlerInterceptor);
 
