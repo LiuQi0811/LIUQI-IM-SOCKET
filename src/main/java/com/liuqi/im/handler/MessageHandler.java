@@ -38,7 +38,7 @@ public class MessageHandler extends TextWebSocketHandler {
      */
     @Override
     public void afterConnectionEstablished(WebSocketSession session) throws Exception {
-        String name = (String) session.getAttributes().get("name");
+        String name = (String) session.getAttributes().get("username");
         SESSION_MAP.put(name, session);
         this.onlineMessage(name);
     }
@@ -81,7 +81,9 @@ public class MessageHandler extends TextWebSocketHandler {
      */
     @Override
     public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception {
-        super.afterConnectionClosed(session, status);
+        String username = (String) session.getAttributes().get("username");
+        SESSION_MAP.remove(username);
+        log.info("websocket 连接已关闭！");
     }
 
 

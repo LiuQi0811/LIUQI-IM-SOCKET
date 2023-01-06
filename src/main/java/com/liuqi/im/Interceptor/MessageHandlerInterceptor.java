@@ -36,7 +36,7 @@ public class MessageHandlerInterceptor implements HandshakeInterceptor {
             return false;
         }
         log.info("获取 分割后的 name ===> {}", split[2]);
-        attributes.put("name", split[2]);
+        attributes.put("username", split[2]);
 
         return true;
     }
