@@ -106,7 +106,8 @@ public class MessageHandler extends TextWebSocketHandler {
         log.info(" {} ", webSocketSession);
         if (webSocketSession != null) {
             String infoMessage = "来自 " + msg.getSource() + " 的消息: " + msg.getMsg(); //显示消息内容 编辑
-            webSocketSession.sendMessage(new TextMessage(infoMessage)); //获取发送的消息
+            log.info(infoMessage);
+            webSocketSession.sendMessage(new TextMessage(JSON.toJSONString(msg))); //获取发送的消息
         }
 
 
